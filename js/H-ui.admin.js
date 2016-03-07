@@ -11,6 +11,12 @@
 */
 var num=0,oUl=$("#min_title_list"),hide_nav=$("#Hui-tabNav");
 
+function preview(tpl){
+
+var t=tpl||'tpl_test';
+window.open('http://192.168.90.44:8080/omp/map/'.concat(t));
+}
+
 /*获取顶部选项卡总长度*/
 function tabNavallwidth(){
 	var taballwidth=0,

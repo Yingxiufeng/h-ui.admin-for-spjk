@@ -25,13 +25,59 @@
             </script>
         <![endif]-->
         <style type="text/css" media="screen">
-        		
+            .tpl-item {
+            width: 200px;
+            height: 290px;
+            background: #fff;
+            margin: 10px;
+            /* padding: 10px; */
+            border-radius: 2px;
+            border: 1px #eee solid;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.23);
+            }
+            .tpl-item > .thumb img {
+    width: 200px;
+    height: 158px;
+    vertical-align: middle;
+}
+            .t-icon,
+            .t-icon:hover{
+            text-decoration: none;
+            }
+            .Hui-iconfont{
+            font-size: 20px;
+            font-weight: bold;
+            }
+            .tpl-item >
+            .footer >
+            ul {
+            list-style: none;
+            padding: 2px 10px;
+            }
+            .tpl-item >
+            .footer >
+            ul >
+            li {
+            float: left;
+            margin: 0px 18px;
+            padding-top: 4px;
+            list-style: none;
+            }
         </style>
     </head>
     <body>
         <nav class="breadcrumb">
-        	<a class="btn btn-success-outline radius size-S mr-15" id="add" name=""><i class="Hui-iconfont">&#xe600;</i> 新增</a>
-        	<a class="btn btn-success-outline radius size-S" id="search" name=""><i class="Hui-iconfont Hui-iconfont-search2"></i> 搜索</a>
+            <a class="btn btn-success-outline radius size-S mr-15" id="add" name="">
+                <i class="Hui-iconfont">
+                    &#xe600;
+                </i>
+                新增
+            </a>
+            <a class="btn btn-success-outline radius size-S" id="search" name="">
+                <i class="Hui-iconfont Hui-iconfont-search2">
+                </i>
+                搜索
+            </a>
             <a class="btn btn-success radius size-S r mr-20" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" >
                 <i class="Hui-iconfont">
                     &#xe68f;
@@ -40,6 +86,84 @@
         </nav>
         <div class="pd-20">
             <div class="text-c">
+                <div class="tpl-item mt-20" style="position: absolute; left: 550px;">
+                    <div class="thumb" title="预览">
+                        <a class="t-link" href="/omp/map/tpl_test" target="_blank">
+                            <img src="http://192.168.90.44:8080/omp/static/img/map/thumbnail.png"/>
+                        </a>
+                    </div>
+                    <div class="content pd-10">
+                        <label class="tpl-name">
+                           <strong>配置测试</strong>
+                        </label>
+                        <div>
+                            <small class="tpl-desc">
+                                描述信息
+                            </small>
+                        </div>
+                    </div>
+                    <div class="footer text-c va-m">
+                        <ul>
+                            <li>
+                                <a href="/omp/map/tpl_test" target="_blank" class="t-icon" title="预览地图">
+                                    <i class="Hui-iconfont Hui-iconfont-fabu">
+                                    </i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/omp/config/tpl/services?tpl=tpl_test" class="t-icon mr-10" title="修改配置">
+                                    <i class="Hui-iconfont Hui-iconfont-manage">
+                                    </i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="t-icon tpl-remove" data-name="配置测试" data-tpl="tpl_test" title="删除模板">
+                                    <i class="Hui-iconfont Hui-iconfont-del2">
+                                    </i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tpl-item mt-20" style="position: absolute; left: 850px;">
+                    <div class="thumb" title="预览">
+                        <a class="t-link" href="/omp/map/tpl_test" target="_blank">
+                            <img src="http://192.168.90.44:8080/omp/static/img/map/thumbnail.png"/>
+                        </a>
+                    </div>
+                    <div class="content pd-10">
+                        <label class="tpl-name">
+                           <strong>配置测试</strong>
+                        </label>
+                        <div>
+                            <small class="tpl-desc">
+                                描述信息
+                            </small>
+                        </div>
+                    </div>
+                    <div class="footer text-c va-m">
+                        <ul>
+                            <li>
+                                <a href="/omp/map/tpl_test" target="_blank" class="t-icon" title="预览地图">
+                                    <i class="Hui-iconfont Hui-iconfont-fabu">
+                                    </i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/omp/config/tpl/services?tpl=tpl_test" class="t-icon mr-10" title="修改配置">
+                                    <i class="Hui-iconfont Hui-iconfont-manage">
+                                    </i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="t-icon tpl-remove" data-name="配置测试" data-tpl="tpl_test" title="删除模板">
+                                    <i class="Hui-iconfont Hui-iconfont-del2">
+                                    </i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
         <script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js">
@@ -57,14 +181,12 @@
         <script type="text/javascript" src="js/H-ui.admin.js">
         </script>
         <script type="text/javascript">
-        $(function(){
-        	$("#add").on('click',function(){
-        		
-        	});
-        	$("#search").on('click',function(){
-
-        	});
-        });
+            $(function(){
+            $("#add").on('click',function(){
+            });
+            $("#search").on('click',function(){
+            });
+            });
         </script>
     </body>
 </html>
