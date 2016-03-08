@@ -35,11 +35,12 @@
             border: 1px #eee solid;
             box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.23);
             }
-            .tpl-item > .thumb img {
-    width: 200px;
-    height: 158px;
-    vertical-align: middle;
-}
+            .tpl-item >
+            .thumb img {
+            width: 200px;
+            height: 158px;
+            vertical-align: middle;
+            }
             .t-icon,
             .t-icon:hover{
             text-decoration: none;
@@ -86,7 +87,7 @@
         </nav>
         <div class="pd-20">
             <div class="text-c">
-                <div class="tpl-item mt-20" style="position: absolute; left: 550px;">
+                <div class="tpl-item mt-20" style="position: absolute; left: 550px;" id="tpl_test_item">
                     <div class="thumb" title="预览">
                         <a class="t-link" href="/omp/map/tpl_test" target="_blank">
                             <img src="http://192.168.90.44:8080/omp/static/img/map/thumbnail.png"/>
@@ -94,7 +95,9 @@
                     </div>
                     <div class="content pd-10">
                         <label class="tpl-name">
-                           <strong>配置测试</strong>
+                            <strong>
+                                配置测试模板
+                            </strong>
                         </label>
                         <div>
                             <small class="tpl-desc">
@@ -111,13 +114,13 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/omp/config/tpl/services?tpl=tpl_test" class="t-icon mr-10" title="修改配置">
+                                <a href="javascript:;" onclick="start_config('tpl_test');" class="t-icon mr-10" title="修改配置">
                                     <i class="Hui-iconfont Hui-iconfont-manage">
                                     </i>
                                 </a>
                             </li>
                             <li>
-                                <a class="t-icon tpl-remove" data-name="配置测试" data-tpl="tpl_test" title="删除模板">
+                                <a href="javascript:;" onclick="tpl_remove('tpl_test');" class="t-icon tpl-remove" data-name="配置测试" data-tpl="tpl_test" title="删除模板">
                                     <i class="Hui-iconfont Hui-iconfont-del2">
                                     </i>
                                 </a>
@@ -125,15 +128,17 @@
                         </ul>
                     </div>
                 </div>
-                <div class="tpl-item mt-20" style="position: absolute; left: 850px;">
+                <div class="tpl-item mt-20" style="position: absolute; left: 850px;" id="YZT_item">
                     <div class="thumb" title="预览">
-                        <a class="t-link" href="/omp/map/tpl_test" target="_blank">
+                        <a class="t-link" href="/omp/map/YZT" target="_blank">
                             <img src="http://192.168.90.44:8080/omp/static/img/map/thumbnail.png"/>
                         </a>
                     </div>
                     <div class="content pd-10">
                         <label class="tpl-name">
-                           <strong>配置测试</strong>
+                            <strong>
+                                一张图模板
+                            </strong>
                         </label>
                         <div>
                             <small class="tpl-desc">
@@ -144,19 +149,19 @@
                     <div class="footer text-c va-m">
                         <ul>
                             <li>
-                                <a href="/omp/map/tpl_test" target="_blank" class="t-icon" title="预览地图">
+                                <a href="http://192.168.90.44:8080/omp/map/YZT" target="_blank" class="t-icon" title="预览地图">
                                     <i class="Hui-iconfont Hui-iconfont-fabu">
                                     </i>
                                 </a>
                             </li>
                             <li>
-                                <a href="/omp/config/tpl/services?tpl=tpl_test" class="t-icon mr-10" title="修改配置">
+                                <a href="javascript:;" onclick="start_config('YZT');" class="t-icon mr-10" title="修改配置">
                                     <i class="Hui-iconfont Hui-iconfont-manage">
                                     </i>
                                 </a>
                             </li>
                             <li>
-                                <a class="t-icon tpl-remove" data-name="配置测试" data-tpl="tpl_test" title="删除模板">
+                                <a href="javascript:;" onclick="tpl_remove('YZT');" class="t-icon tpl-remove" data-tpl="YZT" title="删除模板">
                                     <i class="Hui-iconfont Hui-iconfont-del2">
                                     </i>
                                 </a>
@@ -183,10 +188,29 @@
         <script type="text/javascript">
             $(function(){
             $("#add").on('click',function(){
+
             });
             $("#search").on('click',function(){
+
             });
+           
             });
+            /**
+             * 转到服务配置页面
+             * @return {[type]} [description]
+             */
+            function start_config(tplName){
+            	open_tab('menu-tpl','服务配置');
+            	setCookie("Omptpl",tplName);
+            }
+             function tpl_remove(tplName){
+             	 layer.confirm('确认要删除吗？',function(index){
+            	//此处请求后台程序，下方是成功后的前台处理……
+            	$("#"+tplName+"_item").remove();
+            		layer.msg('已删除!',{icon:1,time:1000});
+            	});
+            }
+           
         </script>
     </body>
 </html>

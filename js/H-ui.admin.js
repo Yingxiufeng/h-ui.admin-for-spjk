@@ -11,10 +11,14 @@
 */
 var num=0,oUl=$("#min_title_list"),hide_nav=$("#Hui-tabNav");
 
+/**
+ * 预览模板
+ * @param  {} tpl [description]
+ * @return {[type]}     [description]
+ */
 function preview(tpl){
-
-var t=tpl||'tpl_test';
-window.open('http://192.168.90.44:8080/omp/map/'.concat(t));
+	var t=tpl||'tpl_test';
+	window.open('http://192.168.90.44:8080/omp/map/'.concat(t));
 }
 
 /*获取顶部选项卡总长度*/
@@ -51,8 +55,22 @@ function getskincookie(){
 	}
 	$("#skin").attr("href","skin/"+v+"/skin.css");
 }
+
+/**
+ * 打开菜单
+ * 其中：在menu-tpl需要先判断是否已经选择某个模板
+ * @param {[type]} obj [description]
+ */
 function Hui_admin_tab(obj){
 	if($(obj).attr('_href')){
+		// var menu_id=$(obj).closest('dl')[0].id;
+		// //判断是否已经选择模板
+		// if(menu_id==="menu_tpl"){
+		// 	var tplName=getCookie("tpl");
+		// 	if(tplName==null||tplName==""){
+				
+		// 	}
+		// }
 		var bStop=false;
 		var bStopIndex=0;
 		var _href=$(obj).attr('_href');
@@ -162,6 +180,25 @@ function layer_show(title,url,w,h){
 function layer_close(){
 	var index = parent.layer.getFrameIndex(window.name);
 	parent.layer.close(index);
+}
+/**
+ * 打开左侧的菜单项
+ * @param  {[type]} menu_id    [description]
+ * @param  {[type]} data_title [description]
+ * @return {[type]}            [description]
+ */
+function open_tab(menu_id,data_title){
+	var topWindow = $(window.parent.document);
+	var dls=topWindow.find("dl");
+	$.each(dls,function(index,item){
+		if(item.id===menu_id){
+			var ts=$(item).find("a");
+			$.each(ts,function(idx,i){
+				if($(i).data("title")===data_title)
+					Hui_admin_tab($(i));
+			})
+		}
+	});
 }
 $(function(){
 	getskincookie();
